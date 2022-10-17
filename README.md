@@ -1,7 +1,7 @@
 ## printf project
 For this project we wrote own `printf` function. It is the first group project for ALX Students. Our version of `printf` currently handles the following conversion specifiers.
 | Symbol | Operation |
-| ------ | :---------: |
+| ------ | --------- |
 | `c` | Prints character |
 | `s` | Prints string |
 | `%` | Prints Modulus operator |
