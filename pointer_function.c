@@ -1,13 +1,12 @@
 #include "main.h"
 
 /**
- * print_ptr - prints pointers
- * @i: integer value
- * @ptr: Pointer
+ * print_ptr - print_ptr
+ * @i: i
+ * @ptr: ptr
  * @format: format
  * @count: count
- *
- * Return: integer
+ * Return: int
  */
 int print_ptr(int *i, va_list ptr, const char *format, int *count)
 {
@@ -21,11 +20,9 @@ int print_ptr(int *i, va_list ptr, const char *format, int *count)
 			*count = *count + 5;
 		}
 		else
-		{
 			convert_decimal(num, 16, 0, count, 1);
-		}
 
-		*i =*i + 1;
+		*i = *i + 1;
 	}
 	return (0);
 }

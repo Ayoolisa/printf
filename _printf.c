@@ -1,39 +1,46 @@
 #include "main.h"
 
 /**
- * _printf - prints formatted string
- * @format: formatted string to print
+ * _printf - prints output to stdout
+ * @format: String to be formatted
  *
- * Return: string length
+ * Return: int
  */
 int _printf(const char *format, ...)
 {
+	int i = 0;
+	int count = 0;
+	int ret = 0;
 	va_list ptr;
-	int size = 0;
 
-	Choice choice[] = {{"c", char_func}, {"s", str_func}, {"d", digit_func},
-		{"i", digit_func}, {"%", percent_func},
-		{"b", binary_func}, {"u", unsig_int_func},
-		{"X", hex_upper_func}, {"x", hex_lower_func},
-		{"o", octal_func}, {"S", strupperCase_func},
-		{"r", rev_func}, {"R", rot13_func}, {"p", ptr_func},
-		{"+i", plus_dig_func}, {"+d", plus_dig_func},
-		{"+p", plus_ptr_func}, {"+b", binary_func},
-		{"+x", hex_lower_func}, {"+X", hex_upper_func},
-		{"+s", str_func}, {"+c", char_func}, {" i", space_func_num},
-		{" d", space_func_num},
-		{" p", space_func_ptr}, {" b", binary_func},
-		{" x", hex_lower_func},
-		{" X", hex_upper_func}, {" s", str_func},
-		{" c", char_func},
-		{"#o", mod_octal_func},
-		{"#x", mod_hex_func}, {NULL, NULL}};
+	va_start(ptr, format);
 
-		va_start(ptr, format);
+	while (format[i] != '\0')
+	{
+		if (format[i] != '%')
+		{
+			_putchar(format[i]);
+			count++;
+		}
+		else
+		{
+			ret = print_string(&i, ptr, format, &count);
+			ret = print_char(&i, ptr, format, &count);
+			ret = print_digits(&i, ptr, format, &count);
+			ret = print_percent(&i, format, &count);
+			ret = print_unsigned_digits(&i, ptr, format, &count);
+			ret = print_binary(&i, ptr, format, &count);
+			ret = print_hex(&i, ptr, format, &count);
+			ret = print_octal(&i, ptr, format, &count);
+			ret = print_ptr(&i, ptr, format, &count);
+			ret = print_non_printable(&i, ptr, format, &count);
+			ret = print_rev(&i, ptr, format, &count);
+			ret = print_Rot13(&i, ptr, format, &count);
 
-		size = sizeof(choice) / sizeof(Choice);
-
-		size = get_function(format, ptr, choice, size);
-
-		return (size);
+			if (ret == -1)
+				return (-1);
+		}
+		i++;
+	}
+	return (count);
 }

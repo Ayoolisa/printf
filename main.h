@@ -1,8 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <limits.h>
@@ -24,7 +24,6 @@ int print_hex(int *i, va_list ptr, const char *format, int *count);
 int print_ptr(int *i, va_list ptr, const char *format, int *count);
 int print_num(long num, int *count);
 int print_percent(int *i, const char *format, int *count);
-int convert_decimal(unsigned long int num, int base, 
-		int flag_uppercase_hex, int *count, int isPtr);
-
-#endif /* MAIN_H */
+int convert_decimal(unsigned long int num, int base, int flag_uppercase_hex,
+		int *count, int isPtr);
+#endif

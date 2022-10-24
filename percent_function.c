@@ -1,12 +1,11 @@
 #include "main.h"
-
 /**
- * print_percent_func - prints percentages
- * @i: integer value
+ * print_percent - print percent
+ * @i: i
  * @format: format
  * @count: count
  *
- * Return: integer
+ * Return: int
  */
 int print_percent(int *i, const char *format, int *count)
 {
@@ -20,4 +19,3 @@ int print_percent(int *i, const char *format, int *count)
 	}
 	return (0);
 }
-

@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_char - print characters
+ * print_char - print char
  * @i: i
- * @ptr: pointer element
- * @format: format specifier.
- * @count: increments the characters
+ * @ptr: ptr
+ * @format: format
+ * @count: count
  *
  * Return: int
  */
